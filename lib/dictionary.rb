@@ -46,7 +46,26 @@ module Dictionary
   end
 
   class Definition
+    attr_accessor :name, :def
+    attr_reader :id
     @@def_by_word = {}
+    @@def_id_gen = 0
+
+    def self.all
+      @@def_by_word
+    end
+
+    def initialize(attr)
+      @@def_id_gen +=1
+      @def = attr.fetch(:def)
+      @name = attr.fetch(:name)
+      # @id = attr.fetch(:id)
+    end
+
+    def save
+      hash = {self.name => self.def}
+      @@def_by_word.merge!(hash)
+    end
 
   end
 

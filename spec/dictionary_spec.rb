@@ -64,3 +64,21 @@ describe('#word') do
   end
 
 end
+
+describe ('#definition') do
+
+  describe('.all') do
+    it "returns an empty hash when no words have been entered" do
+      expect(Dictionary::Definition.all).to eq({})
+    end
+  end
+
+  describe('.save') do
+    it "adds word to hash as value, with definition as key" do
+      test = Dictionary::Definition.new({:def => "a great place to hang out and meet friends", :name => "jail"})
+      test.save
+      expect(Dictionary::Definition.all).to eq({"jail" => "a great place to hang out and meet friends"})
+    end
+  end
+
+end
