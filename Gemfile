@@ -6,6 +6,7 @@ gem('pry')
 gem('sinatra')
 gem('sinatra-contrib')
 gem('rspec')
+gem('capybara')
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
