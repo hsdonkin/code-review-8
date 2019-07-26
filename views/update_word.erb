@@ -1,0 +1,16 @@
+
+<h3> <%= @word %> </h3>
+<form class="" action="/update_word/<%=@word%>" method="post">
+  <label for="">Change word name?</label>
+  <input type="text" name="word_name_update" value="<%=@word%>">
+    <% def_counter = 0 %>
+    <label for="">Update definitions?</label>
+  <% @definitions.each_key do |value| %>
+      <% def_counter +=1 %>
+    <input type="text" name="new_def_<%=def_counter%>" value="<%=value%>">
+  <% end %>
+  <button type="submit">Submit</button>
+</form>
+
+<a href="/delete/<%=@word%>">Delete this word forever</a>
+<a href="/home">Return to the amazing homepage</a>
