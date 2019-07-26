@@ -80,6 +80,13 @@ module Dictionary
       @@def_by_word = @@def_by_word.reject{|k,v| v == definition}
     end
 
+    def update(definition)
+        #delete the entry in the hash for this word, change the name in the object, then save it to the hash
+        Dictionary::Definition.delete(definition)
+        @def = definition
+        save
+    end
+
   end
 
 end

@@ -112,4 +112,15 @@ describe ('#definition') do
     end
   end
 
+  describe ('.update') do
+    it "updates the entry in the hash with a new definition value" do
+      test = Dictionary::Definition.new({:def => "a great place to hang out and meet friends", :name => "jail"})
+      test.save
+      other_test = Dictionary::Definition.new({:def => "a cool container", :name => "chilly bin"})
+      other_test.save
+      test.update("an all expenses paid resort")
+      expect(Dictionary::Definition.search("jail")).to eq("an all expenses paid resort")
+    end
+  end
+
 end
