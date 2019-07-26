@@ -19,7 +19,7 @@ module Dictionary
     end
 
     def save
-      hash = {self.name => self.def}
+      hash = {self.def => self.name}
       @@words_by_def.merge!(hash)
     end
 
@@ -27,6 +27,9 @@ module Dictionary
       @@words_by_def = {}
     end
 
+    def self.search(def_str)
+      @@words_by_def.fetch(def_str)
+    end
   end
 
   class Definition

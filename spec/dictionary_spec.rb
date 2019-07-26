@@ -5,7 +5,7 @@ require('./lib/dictionary.rb')
 describe('#word') do
 
   before(:each) do
-
+    Dictionary::Word.clear
   end
 
   describe('.all') do
@@ -15,10 +15,10 @@ describe('#word') do
   end
 
   describe('.save') do
-    it "adds word to hash as key, with definition as value" do
+    it "adds word to hash as value, with definition as key" do
       test = Dictionary::Word.new({:name => "flower", :def => "something you eat"})
       test.save
-      expect(Dictionary::Word.all).to eq({"flower" => "something you eat"})
+      expect(Dictionary::Word.all).to eq({"something you eat" => "flower"})
     end
   end
 
@@ -26,9 +26,17 @@ describe('#word') do
     it "resets the word hash to an empty hash" do
       test = Dictionary::Word.new({:name => "flower", :def => "something you eat"})
       test.save
-      expect(Dictionary::Word.all).to eq({"flower" => "something you eat"})
+      expect(Dictionary::Word.all).to eq({"something you eat" => "flower"})
       Dictionary::Word.clear
       expect(Dictionary::Word.all).to eq ({})
+    end
+  end
+
+  describe('.search') do
+    it "retrieves a word based on the definition" do
+      test = Dictionary::Word.new({:name => "flower", :def => "something you eat"})
+      test.save
+      expect(Dictionary::Word.search("something you eat")).to eq ("flower")
     end
   end
 
