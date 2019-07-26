@@ -67,6 +67,7 @@ end
 
 describe ('#definition') do
 
+
   describe('.all') do
     it "returns an empty hash when no words have been entered" do
       expect(Dictionary::Definition.all).to eq({})
@@ -96,6 +97,18 @@ describe ('#definition') do
       test = Dictionary::Definition.new({:def => "a great place to hang out and meet friends", :name => "jail"})
       test.save
       expect(Dictionary::Definition.search("jail")).to eq ("a great place to hang out and meet friends")
+    end
+  end
+
+  describe('.delete') do
+    it "deletes a specific definition from the hash" do
+      Dictionary::Definition.clear
+      test = Dictionary::Definition.new({:def => "a great place to hang out and meet friends", :name => "jail"})
+      test.save
+      other_test = Dictionary::Definition.new({:def => "a cool container", :name => "chilly bin"})
+      other_test.save
+      Dictionary::Definition.delete("a great place to hang out and meet friends")
+      expect(Dictionary::Definition.all).to eq ({"chilly bin" => "a cool container"})
     end
   end
 

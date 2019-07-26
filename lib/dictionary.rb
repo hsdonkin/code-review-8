@@ -75,6 +75,11 @@ module Dictionary
       @@def_by_word.fetch(word)
     end
 
+    def self.delete(definition)
+      # reject returns the hash after the word name has been eliminated, and we set @@words_by_def to that new value
+      @@def_by_word = @@def_by_word.reject{|k,v| v == definition}
+    end
+
   end
 
 end
