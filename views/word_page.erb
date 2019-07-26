@@ -1,0 +1,8 @@
+
+<h3> <%= @word %> </h3>
+<% @definitions.each_key do |value| %>
+  <p><%= value %></p>
+<% end %>
+
+<a href="/delete">Delete this word forever</a>
+<a href="/home">Return to the amazing homepage</a>

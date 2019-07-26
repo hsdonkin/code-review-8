@@ -11,7 +11,6 @@ module Dictionary
       @@word_id_gen +=1
       @name = attr.fetch(:name)
       @def = attr.fetch(:def)
-      # @id = attr.fetch(:id)
     end
 
     def self.all

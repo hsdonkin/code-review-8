@@ -1,0 +1,26 @@
+
+
+<a href="/words">View a List of All Words</a>
+<h2> Enter a word and definition! </h2>
+<form class="form-group" action="/add_word" method="post">
+  <label for="input_word_name">Word:</label>
+  <input type="text" name="input_word_name" value="">
+  <label for="input_word_def">Definition</label>
+  <input type="text" name="input_word_def" value="">
+  <button type="submit">Add!</button>
+</form>
+
+<% if Dictionary::Word.all.any? %>
+  <h2>Word list: </h2>
+  <% unique_values = [] %>
+  <% Dictionary::Word.all.each_value do |value| %>
+    <% if (unique_values.include? value) == false %>
+      <% unique_values.push(value)%>
+    <% end %>
+  <% end %>
+
+  <% unique_values.each do |value| %>
+    <a href="/words/<%= value %>"><%= value %></a>
+  <% end %>
+
+<% end %>
