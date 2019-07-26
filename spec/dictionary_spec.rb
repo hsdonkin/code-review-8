@@ -81,4 +81,14 @@ describe ('#definition') do
     end
   end
 
+  describe('.clear') do
+    it "resets the definition hash to an empty hash" do
+      test = Dictionary::Definition.new({:def => "a great place to hang out and meet friends", :name => "jail"})
+      test.save
+      expect(Dictionary::Definition.all).to eq({"jail" => "a great place to hang out and meet friends"})
+      Dictionary::Definition.clear
+      expect(Dictionary::Definition.all).to eq({})
+    end
+  end
+
 end

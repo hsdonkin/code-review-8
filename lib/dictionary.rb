@@ -67,6 +67,10 @@ module Dictionary
       @@def_by_word.merge!(hash)
     end
 
+    def self.clear
+      @@def_by_word = {}
+    end
+
   end
 
 end
