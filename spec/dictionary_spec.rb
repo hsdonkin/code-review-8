@@ -91,4 +91,12 @@ describe ('#definition') do
     end
   end
 
+  describe('.search') do
+    it "retrieves a defintion from an input word" do
+      test = Dictionary::Definition.new({:def => "a great place to hang out and meet friends", :name => "jail"})
+      test.save
+      expect(Dictionary::Definition.search("jail")).to eq ("a great place to hang out and meet friends")
+    end
+  end
+
 end

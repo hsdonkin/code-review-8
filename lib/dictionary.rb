@@ -71,6 +71,10 @@ module Dictionary
       @@def_by_word = {}
     end
 
+    def self.search(word)
+      @@def_by_word.fetch(word)
+    end
+
   end
 
 end
