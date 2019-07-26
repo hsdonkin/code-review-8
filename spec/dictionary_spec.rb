@@ -14,6 +14,7 @@ describe('#word') do
     end
   end
 
+
   describe('.save') do
     it "adds word to hash as value, with definition as key" do
       test = Dictionary::Word.new({:name => "flower", :def => "something you eat"})
@@ -47,8 +48,18 @@ describe('#word') do
       test.save
       other_test.save
       Dictionary::Word.delete("flower")
-      binding.pry
       expect(Dictionary::Word.all).to eq ({"probably the worst movie of all time" => "flashdance"})
+    end
+  end
+
+  describe ('.update') do
+    it "updates the entry in the hash with a new word value" do
+      test = Dictionary::Word.new({:name => "flower", :def => "something you eat"})
+      other_test = Dictionary::Word.new({:name => "flashdance", :def => "probably the worst movie of all time"})
+      test.save
+      other_test.save
+      test.update("sticks and rocks")
+      expect(Dictionary::Word.search("something you eat")).to eq("sticks and rocks")
     end
   end
 

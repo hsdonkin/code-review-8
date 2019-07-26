@@ -31,6 +31,13 @@ module Dictionary
       @@words_by_def.fetch(def_str)
     end
 
+    def update(word_name)
+        #delete the entry in the hash for this word, change the name in the object, then save it to the hash
+        Dictionary::Word.delete(word_name)
+        @name = word_name
+        save
+    end
+
     def self.delete(word_name)
       # reject returns the hash after the word name has been eliminated, and we set @@words_by_def to that new value
       @@words_by_def = @@words_by_def.reject{|k,v| v == word_name}
