@@ -8,21 +8,20 @@ _Make an application that contains a Word class. The homepage of the app should 
 
 ## Setup/Installation Requirements
 
-* Install Ruby and RubyGems
-* Run the anagram.rb file using a ruby interpreter.
+* Visit https://limitless-beyond-14036.herokuapp.com/
+
 
 ## Known Bugs
-* Anagram generator is slow and can potentially crash terminal and / or lock you out of your text editor. Use carefully! Also earful, allure, cruelly, year, yell, cafe, clue, cully, early.
+* Occasionally deletes all words, but only when it feels like breaking
+* Can't add more definitions after word is created, only change them
 
 ## Link to GitHub Pages
 
 _Link to GitHub repo:_
-[Anagram Checker](https://github.com/hsdonkin/code-review-7)
-
-
+[Word Definer](https://github.com/hsdonkin/code-review-8
 
 ### License
 
 * _open source_
 
-Copyright (c) 2019 **_Hodgkin Hun_**
+Copyright (c) 2019 **_Does Anyone Read This_**
