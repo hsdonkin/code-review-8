@@ -18,7 +18,7 @@ _Make an application that contains a Word class. The homepage of the app should 
 ## Link to GitHub Pages
 
 _Link to GitHub repo:_
-[Word Definer](https://github.com/hsdonkin/code-review-8
+[Word Definer](https://github.com/hsdonkin/code-review-8)
 
 ### License
 
